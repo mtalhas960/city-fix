@@ -7,6 +7,9 @@ import About from '../pages/public/About';
 import Dashboard from '../pages/admin/Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import Features from '../pages/public/Features';
+import Contact from '../pages/public/Contact';
+import LiveMap from '../pages/public/LiveMap';
+import Report from '../pages/public/Report';
 
 const router = createBrowserRouter([
   {
@@ -16,9 +19,9 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/features', element: <Features /> },
       { path: '/about', element: <About /> },
-      { path: '/contact', element: <Home /> },
-      { path: '/map', element: <Home /> },
-      { path: '/report', element: <Home /> },
+      { path: '/contact', element: <Contact /> },
+      { path: '/map', element: <LiveMap /> },
+      { path: '/report', element: <Report /> },
     ],
   },
   {
