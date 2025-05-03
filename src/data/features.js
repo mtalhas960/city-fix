@@ -22,6 +22,36 @@ const features = [
         color: "#9333ea",
         title: "Admin Panel",
         description: "Powerful tools for admins to manage reports, assign tasks, and monitor resolution progress."
+    },
+    {
+        icon: "RiImageAddLine",
+        color: "#3b82f6",
+        title: "Photo Evidence Upload",
+        description: "Attach photos and videos to reports for better clarity and faster issue verification by authorities."
+    },
+    {
+        icon: "RiNotification2Fill",
+        color: "#ef4444",
+        title: "Real-Time Notifications",
+        description: "Get instant updates on your report status, admin actions, and community activity directly on your dashboard."
+    },
+    {
+        icon: "RiShieldCheckFill",
+        color: "#0ea5e9",
+        title: "Verified Reports",
+        description: "Reports are verified for authenticity and relevance to ensure accurate, actionable data for authorities."
+    },
+    {
+        icon: "RiBarChart2Fill",
+        color: "#16a34a",
+        title: "Insightful Analytics",
+        description: "View data trends, heatmaps, and resolution stats to monitor urban issues and improvements citywide."
+    },
+    {
+        icon: "RiChat1Fill",
+        color: "#f97316",
+        title: "Community Discussion",
+        description: "Engage with other citizens and authorities via comments and discussions on reported issues."
     }
 ];
 

@@ -14,7 +14,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {features.map((feature, index) => (
+          {features.slice(0, 4).map((feature, index) => (
             <FeatureCard
               key={index}
               icon={feature.icon}

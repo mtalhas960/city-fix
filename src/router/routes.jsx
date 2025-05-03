@@ -6,6 +6,7 @@ import Home from '../pages/public/Home';
 import About from '../pages/public/About';
 import Dashboard from '../pages/admin/Dashboard';
 import ProtectedRoute from './ProtectedRoute';
+import Features from '../pages/public/Features';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/features', element: <Home /> },
+      { path: '/features', element: <Features /> },
       { path: '/about', element: <About /> },
       { path: '/contact', element: <Home /> },
       { path: '/map', element: <Home /> },
