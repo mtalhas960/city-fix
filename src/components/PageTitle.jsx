@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PageTitle = ({ title, description, pageName }) => {
   return (
-    <section className="py-24  bg-gradient-to-br from-[#9333ea]/20 via-pink-500/20 to-blue-500/20">
+    <section className="py-24 px-6  bg-gradient-to-br from-[#9333ea]/20 via-pink-500/20 to-blue-500/20">
       <div className="section-container text-center">
         <h1 className="font-poppins font-bold text-4xl md:text-5xl text-darkGray">{title}</h1>
         <p className="text-lg text-darkGray/70 mt-4">{description}</p>

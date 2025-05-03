@@ -95,11 +95,14 @@ const Navbar = () => {
           <NavLink to="/about" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             About
           </NavLink>
-          <NavLink to="/services" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
-            Services
+          <NavLink to="/features" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+            Features
           </NavLink>
           <NavLink to="/contact" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             Contact
+          </NavLink>
+          <NavLink to="/map" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+            Live Map
           </NavLink>
           <Link to="/report" className="bg-[#9333ea] text-white block px-3 py-2 rounded-md text-base font-medium mt-4">
             Report Now
