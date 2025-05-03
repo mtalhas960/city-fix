@@ -1,31 +1,8 @@
 import React from 'react';
-import { RiMapPinFill, RiThumbUpLine, RiUser3Fill, RiSettings4Fill } from '@remixicon/react';
 import FeatureCard from './utils/FeatureCard';
+import features from '../data/features';
 
 const Features = () => {
-  const features = [
-    {
-      icon: <RiMapPinFill size={24} color="#9333ea" />,
-      title: "Live Map of Issues",
-      description: "See reported issues in real time on an interactive map with status updates and location data."
-    },
-    {
-      icon: <RiThumbUpLine size={24} color="#22c55e" />,
-      title: "Upvote System",
-      description: "Prioritize issues based on community votes to ensure the most important problems get fixed first."
-    },
-    {
-      icon: <RiUser3Fill size={24} color="#f59e0b" />,
-      title: "User Dashboards",
-      description: "Track your reports, view their status, and receive notifications when updates are available."
-    },
-    {
-      icon: <RiSettings4Fill size={24} color="#9333ea" />,
-      title: "Admin Panel",
-      description: "Powerful tools for admins to manage reports, assign tasks, and monitor resolution progress."
-    }
-  ];
-
   return (
     <section className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#9333ea]/20 via-pink-500/10 to-blue-500/20 -z-10"></div>
@@ -41,6 +18,7 @@ const Features = () => {
             <FeatureCard
               key={index}
               icon={feature.icon}
+              color={feature.color}
               title={feature.title}
               description={feature.description}
             />

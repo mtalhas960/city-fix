@@ -1,29 +1,7 @@
 import React from 'react';
+import statistics from '../data/stats';
 
 const Stats = () => {
-  const statistics = [
-    {
-      number: "5,280+",
-      label: "Issues Reported",
-      color: "#9333ea"
-    },
-    {
-      number: "3,945+",
-      label: "Problems Fixed",
-      color: "#22c55e"
-    },
-    {
-      number: "12,500+",
-      label: "Active Users",
-      color: "#f59e0b"
-    },
-    {
-      number: "4",
-      label: "Cities Covered",
-      color: "#9333ea"
-    }
-  ];
-
   return (
     <section className="py-16 bg-white/90 backdrop-filter backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
