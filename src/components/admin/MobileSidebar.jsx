@@ -5,6 +5,8 @@ import {
     RiFileList3Line,
     RiFileList2Line,
     RiUser2Line,
+    RiUserAddLine,
+    RiUserSettingsLine,
     RiSettings3Line,
     RiCloseLine,
     RiLogoutBoxRLine
@@ -21,6 +23,8 @@ const MobileSidebar = ({ onClose }) => {
         { path: '/admin-panel/reports', icon: <RiFileList3Line className="h-5 w-5 mr-3" />, label: 'Reports' },
         { path: '/admin-panel/reports/CX-2025-83655', icon: <RiFileList2Line className="h-5 w-5 mr-3" />, label: 'Report Detail' },
         { path: '/admin-panel/admins', icon: <RiUser2Line className="h-5 w-5 mr-3" />, label: 'Admins' },
+        { path: '/admin-panel/admins/ADM-001', icon: <RiUserSettingsLine className="h-5 w-5 mr-3" />, label: 'Admin Detail' },
+        { path: '/admin-panel/admins/add', icon: <RiUserAddLine className="h-5 w-5 mr-3" />, label: 'Add New Admin' },
         { path: '/admin-panel/settings', icon: <RiSettings3Line className="h-5 w-5 mr-3" />, label: 'Settings' },
     ];
 

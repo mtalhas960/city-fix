@@ -13,6 +13,9 @@ import Report from '../pages/public/Report';
 import Login from '../pages/admin/Login';
 import ReportDetail from '../pages/admin/ReportDetail';
 import Reports from '../pages/admin/Reports';
+import Admins from '../pages/admin/Admins';
+import AdminDetail from '../pages/admin/AdminDetail';
+import AdminAdd from '../pages/admin/AdminAdd';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +42,9 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: '/admin-panel/reports', element: <Reports /> },
       { path: '/admin-panel/reports/:id', element: <ReportDetail /> },
-      { path: '/admin-panel/admins', element: <Dashboard /> },
+      { path: '/admin-panel/admins', element: <Admins /> },
+      { path: '/admin-panel/admins/:id', element: <AdminDetail /> },
+      { path: '/admin-panel/admins/add', element: <AdminAdd /> },
       { path: '/admin-panel/settings', element: <Dashboard /> },
     ],
   },
