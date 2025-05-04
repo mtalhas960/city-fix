@@ -35,19 +35,19 @@ const Navbar = () => {
             <div className="hidden lg:block">
               <div className={`backdrop-blur-md rounded-xl px-6 py-1 border border-primary/30 transition-all duration-300 ${isScrolled ? 'bg-white/55' : 'bg-primary/5'}`}>
                 <div className="flex space-x-8">
-                  <NavLink to="/" className={({isActive}) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
+                  <NavLink to="/" className={({ isActive }) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
                     Home
                   </NavLink>
-                  <NavLink to="/about" className={({isActive}) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
+                  <NavLink to="/about" className={({ isActive }) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
                     About
                   </NavLink>
-                  <NavLink to="/features" className={({isActive}) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
+                  <NavLink to="/features" className={({ isActive }) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
                     Features
                   </NavLink>
-                  <NavLink to="/contact" className={({isActive}) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
+                  <NavLink to="/contact" className={({ isActive }) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
                     Contact
                   </NavLink>
-                  <NavLink to="/map" className={({isActive}) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
+                  <NavLink to="/map" className={({ isActive }) => isActive ? "text-primary px-3 py-2 text-sm font-medium transition-colors" : "text-primary/60 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"}>
                     Live Map
                   </NavLink>
                 </div>
@@ -56,9 +56,9 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden lg:flex">
-                <Link to="/report" className="btn-primary">
-                  Report Now
-                </Link>
+              <Link to="/report" className="btn-primary">
+                Report Now
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -87,24 +87,24 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile menu, show/hide based on menu state */}
-      <div className={`lg:hidden fixed top-[72px] left-0 right-0 z-40 ${mobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
-        <div className="backdrop-blur-md bg-black/50 border-t border-white/5 px-4 pt-2 pb-3 space-y-1">
-          <NavLink to="/" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+      <div className={`lg:hidden fixed top-[74px] left-0 right-0 z-40 ${mobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+        <div className="backdrop-blur-md bg-black/50 border-t border-white/5 px-4 pt-4 pb-3 space-y-1">
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/" className={({ isActive }) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             Home
           </NavLink>
-          <NavLink to="/about" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/about" className={({ isActive }) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             About
           </NavLink>
-          <NavLink to="/features" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/features" className={({ isActive }) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             Features
           </NavLink>
-          <NavLink to="/contact" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/contact" className={({ isActive }) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             Contact
           </NavLink>
-          <NavLink to="/map" className={({isActive}) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/map" className={({ isActive }) => isActive ? "text-white bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium" : "text-white hover:bg-[#9333ea]/20 block px-3 py-2 rounded-md text-base font-medium"}>
             Live Map
           </NavLink>
-          <Link to="/report" className="bg-[#9333ea] text-white block px-3 py-2 rounded-md text-base font-medium mt-4">
+          <Link onClick={() => setMobileMenuOpen(false)} to="/report" className="bg-[#9333ea] text-white block px-3 py-2 rounded-md text-base font-medium mt-4">
             Report Now
           </Link>
         </div>

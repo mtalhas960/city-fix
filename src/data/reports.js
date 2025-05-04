@@ -5,7 +5,7 @@ const reports = [
         "category": "streetlight",
         "description": "There is a broken streetlight on fawara chowk",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292165/ktnorxmdeoyl2jghlyrx.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/broken_sghiz4.webp"
         ],
         "location": {
             "latitude": 29.390951310053623,
@@ -27,7 +27,7 @@ const reports = [
         "category": "pothole",
         "description": "There's a large pothole in the middle of the road that's causing traffic and damaging vehicles. It's approximately 2 feet wide and 6 inches deep.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292166/pothole_damage_main_road.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355181/pothole_1_exc1va.jpg"
         ],
         "location": {
             "latitude": 29.394825,
@@ -49,7 +49,7 @@ const reports = [
         "category": "garbage",
         "description": "The garbage bin has not been collected for over a week and is now overflowing. It's creating bad odor and attracting stray animals.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292167/overflow_garbage_bin.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/garbage_s84cyh.jpg"
         ],
         "location": {
             "latitude": 29.388762,
@@ -71,7 +71,7 @@ const reports = [
         "category": "water",
         "description": "There is a significant water leak from the main pipeline, causing water to pool on the street. This has been ongoing for 3 days.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292168/water_leak_street.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/water_dhbnkm.jpg"
         ],
         "location": {
             "latitude": 29.401234,
@@ -93,7 +93,7 @@ const reports = [
         "category": "other",
         "description": "A park bench in the community garden has been vandalized and has sharp, broken parts that pose a safety risk to children.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292169/damaged_park_bench.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/damaged_bench_qdgv1n.jpg"
         ],
         "location": {
             "latitude": 29.392456,
@@ -115,7 +115,7 @@ const reports = [
         "category": "streetlight",
         "description": "A stretch of about 10 streetlights are not working on the highway, making it dangerous for nighttime driving. This is near the university entrance.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292170/dark_highway.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355181/not_working_t70zba.jpg"
         ],
         "location": {
             "latitude": 29.399876,
@@ -137,7 +137,7 @@ const reports = [
         "category": "other",
         "description": "A concrete road barrier has collapsed into the road, blocking one lane and creating a traffic hazard. Urgent attention needed.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292171/collapsed_barrier.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355181/collapsed_barrier_spfr3p.jpg"
         ],
         "location": {
             "latitude": 29.387654,
@@ -159,7 +159,7 @@ const reports = [
         "category": "pothole",
         "description": "A very deep pothole at this intersection has caused multiple accidents in the past week. It's hard to see at night and fills with water when it rains.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292172/deep_pothole_intersection.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355181/pothole_2_mjsmnj.jpg"
         ],
         "location": {
             "latitude": 29.395123,
@@ -181,7 +181,7 @@ const reports = [
         "category": "garbage",
         "description": "Someone has been using this empty lot as an illegal dumping site. There's construction waste, household trash, and other debris piling up.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292173/illegal_dumping.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/garbage_s84cyh.jpg"
         ],
         "location": {
             "latitude": 29.382345,
@@ -203,7 +203,7 @@ const reports = [
         "category": "water",
         "description": "Our entire neighborhood has been without water supply for 48 hours. No prior notice was given by the water department.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292174/dry_water_tap.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/water_dhbnkm.jpg"
         ],
         "location": {
             "latitude": 29.403456,
@@ -225,7 +225,7 @@ const reports = [
         "category": "other",
         "description": "The road markings at this busy intersection have completely faded away, causing confusion and near-accidents as drivers can't see lanes properly.",
         "photos": [
-            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746292175/faded_road_markings.jpg"
+            "https://res.cloudinary.com/dmie3ln0b/image/upload/v1746355180/faded_marking_xpf8oe.webp"
         ],
         "location": {
             "latitude": 29.391234,
