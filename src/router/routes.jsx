@@ -10,6 +10,8 @@ import Features from '../pages/public/Features';
 import Contact from '../pages/public/Contact';
 import LiveMap from '../pages/public/LiveMap';
 import Report from '../pages/public/Report';
+import Login from '../pages/admin/Login';
+import ReportDetail from '../pages/admin/ReportDetail';
 
 const router = createBrowserRouter([
   {
@@ -22,10 +24,11 @@ const router = createBrowserRouter([
       { path: '/contact', element: <Contact /> },
       { path: '/map', element: <LiveMap /> },
       { path: '/report', element: <Report /> },
+      { path: '/login', element: <Login /> },
     ],
   },
   {
-    path: '/admin',
+    path: '/admin-panel',
     element: (
       <ProtectedRoute>
         <AdminLayout />
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Dashboard /> },
+      { path: '/admin-panel/reports', element: <Dashboard /> },
+      { path: '/admin-panel/reports/:id', element: <ReportDetail /> },
+      { path: '/admin-panel/admins', element: <Dashboard /> },
+      { path: '/admin-panel/settings', element: <Dashboard /> },
     ],
   },
 ]);

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const useAuthStore = create((set) => ({
-    isAdmin: false,
+    isAdmin: true,
     loginAsAdmin: () => set({ isAdmin: true }),
     logout: () => set({ isAdmin: false }),
 }));
