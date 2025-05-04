@@ -12,6 +12,7 @@ import LiveMap from '../pages/public/LiveMap';
 import Report from '../pages/public/Report';
 import Login from '../pages/admin/Login';
 import ReportDetail from '../pages/admin/ReportDetail';
+import Reports from '../pages/admin/Reports';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Dashboard /> },
-      { path: '/admin-panel/reports', element: <Dashboard /> },
+      { path: '/admin-panel/reports', element: <Reports /> },
       { path: '/admin-panel/reports/:id', element: <ReportDetail /> },
       { path: '/admin-panel/admins', element: <Dashboard /> },
       { path: '/admin-panel/settings', element: <Dashboard /> },

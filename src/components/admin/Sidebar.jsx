@@ -30,7 +30,7 @@ const Sidebar = () => {
                 {/* Logo */}
                 <div className="px-6 py-4 border-b">
                     <Link to="/">
-                        <img src="/logo-primary.svg" alt="CityFix Logo" className="h-[41px]" />
+                        <img src="/logo-primary.svg" alt="CityFix Logo" className="h-10" />
                     </Link>
                 </div>
 
