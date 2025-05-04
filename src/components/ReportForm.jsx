@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import { toast } from 'react-toastify';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { uploadMultipleImages } from '../utils/uploadImage';
+import createIcon from './utils/CustomMarker';
 
 const MapPositionHandler = ({ position, setPosition, onPositionChange }) => {
     const map = useMap();
 
     useEffect(() => {
-        if (position && position.length === 2) {
+        if (position && position.length === 2 && !map._loaded) {
             map.setView(position, 16);
         }
     }, [position, map]);
@@ -90,8 +91,8 @@ const ReportForm = () => {
                 },
                 (error) => {
                     console.error("Error getting location:", error);
-                    setPosition([40.7128, -74.0060]);
-                    handlePositionChange([40.7128, -74.0060]);
+                    setPosition([29.3956, 71.6836]);
+                    handlePositionChange([29.3956, 71.6836]);
                 }
             );
         }
@@ -213,15 +214,14 @@ const ReportForm = () => {
                 title: data['issue-title'],
                 category: data['issue-category'],
                 description: data['issue-description'],
-                photos: imageUrls.map(url => url.split('/').pop()),  // Extract filenames from URLs
+                photos: imageUrls,
                 location: {
                     latitude: position[0],
                     longitude: position[1],
                     address: locationAddress || 'Unknown location'
                 },
-                status: 'pending',
+                status: 'new',
                 priority: data['issue-priority'],
-                upvotes: 0,
                 contact: {
                     email: data['contact-email'] || null,
                     phone: data['contact-phone'] || null
@@ -298,12 +298,13 @@ const ReportForm = () => {
                                     <option value="water">💧 Water Leakage</option>
                                     <option value="other">📌 Other</option>
                                 </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-darkGray"></div>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
+                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-darkGray">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </div>
                             {errors['issue-category'] && (
                                 <p className="text-red-500 text-sm mt-1">{errors['issue-category'].message}</p>
@@ -431,14 +432,14 @@ const ReportForm = () => {
                                     <MapContainer
                                         center={position}
                                         zoom={16}
-                                        style={{ height: '100%', width: '100%' }}
+                                        style={{ height: '100%', width: '100%',cursor: 'pointer' }}
                                     >
                                         <TileLayer
                                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                         />
                                         {position && (
-                                            <Marker position={position} />
+                                            <Marker position={position} icon={createIcon()} />
                                         )}
                                         <MapPositionHandler
                                             position={position}

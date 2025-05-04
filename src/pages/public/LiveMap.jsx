@@ -1,5 +1,6 @@
 import React from 'react'
 import PageTitle from '../../components/PageTitle'
+import Issues from '../../components/Issues'
 
 const LiveMap = () => {
   return (
@@ -9,6 +10,7 @@ const LiveMap = () => {
         description="Explore and track reported issues in your area"
         pageName="Live Map"
       />
+      <Issues />
     </>
   )
 }
