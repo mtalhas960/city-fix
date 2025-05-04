@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RiEyeLine, RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import reports from '../../data/reports';
@@ -8,19 +8,50 @@ const Reports = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+  const [allReports, setAllReports] = useState([]);
+  const [sortOption, setSortOption] = useState('newest');
+  
+  useEffect(() => {
+    const storedIssues = localStorage.getItem('issues');
+    const combinedReports = reports.concat(JSON.parse(storedIssues || '[]'));
+    setAllReports(combinedReports);
+  }, []);
   
   // Filter reports based on search term
-  const filteredReports = reports.filter(report => 
+  const filteredReports = allReports.filter(report => 
     report.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     report.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
     report.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
+  // Sort reports based on selected option
+  const sortedReports = [...filteredReports].sort((a, b) => {
+    switch (sortOption) {
+      case 'newest':
+        return new Date(b.submittedAt) - new Date(a.submittedAt);
+      case 'oldest':
+        return new Date(a.submittedAt) - new Date(b.submittedAt);
+      case 'priority-high':
+        const priorityOrder = { 'Critical': 4, 'High': 3, 'Medium': 2, 'Moderate': 2, 'Low': 1 };
+        return priorityOrder[b.priority] - priorityOrder[a.priority];
+      case 'priority-low':
+        const priorityOrderAsc = { 'Critical': 4, 'High': 3, 'Medium': 2, 'Moderate': 2, 'Low': 1 };
+        return priorityOrderAsc[a.priority] - priorityOrderAsc[b.priority];
+      case 'status':
+        const statusOrder = { 'pending': 1, 'in_progress': 2, 'in-progress': 2, 'resolved': 3 };
+        return statusOrder[a.status] - statusOrder[b.status];
+      case 'category':
+        return a.category.localeCompare(b.category);
+      default:
+        return new Date(b.submittedAt) - new Date(a.submittedAt);
+    }
+  });
+  
   // Calculate pagination
   const indexOfLastReport = currentPage * rowsPerPage;
   const indexOfFirstReport = indexOfLastReport - rowsPerPage;
-  const currentReports = filteredReports.slice(indexOfFirstReport, indexOfLastReport);
-  const totalPages = Math.ceil(filteredReports.length / rowsPerPage);
+  const currentReports = sortedReports.slice(indexOfFirstReport, indexOfLastReport);
+  const totalPages = Math.ceil(sortedReports.length / rowsPerPage);
   
   // Navigate to report detail page
   const handleViewReport = (reportId) => {
@@ -182,6 +213,26 @@ const Reports = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </span>
+        </div>
+        
+        {/* Sort By Dropdown */}
+        <div className="flex items-center w-full sm:w-max">
+          <label htmlFor="sort-select" className="mr-2 text-sm font-medium text-darkGray/70 text-nowrap">
+            Sort by:
+          </label>
+          <select
+            id="sort-select"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+            className="bg-white border border-gray-300 text-darkGray rounded-lg focus:ring-primary focus:border-primary py-2 px-4 text-sm w-full"
+          >
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="priority-high">Priority (High-Low)</option>
+            <option value="priority-low">Priority (Low-High)</option>
+            <option value="status">Status</option>
+            <option value="category">Category</option>
+          </select>
         </div>
       </div>
       

@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import L from 'leaflet';
 import {
     RiTimeLine,
-    RiThumbUpLine,
     RiMailLine,
     RiPhoneLine,
     RiDeleteBin6Line,
@@ -20,8 +19,9 @@ const ReportDetail = () => {
     const navigate = useNavigate();
     const mapRef = useRef(null);
     const mapContainerRef = useRef(null);
-
-    const reportData = reports.find(report => report.id === id);
+    
+    const [allReports, setAllReports] = useState([]);
+    const reportData = allReports.find(report => report.id === id);
 
     const [formData, setFormData] = useState({
         title: '',
@@ -34,11 +34,19 @@ const ReportDetail = () => {
     });
 
     useEffect(() => {
+        const storedIssues = localStorage.getItem('issues');
+        const combinedReports = reports.concat(JSON.parse(storedIssues || '[]'));
+        setAllReports(combinedReports);
+    }, []);
+
+    useEffect(() => {
+        if (allReports.length === 0) return;
+        
         if (!reportData) {
             toast.error('Report not found');
             setTimeout(() => {
                 navigate('/admin-panel/reports');
-            }, 2000);
+            }, 1000);
             return;
         }
 
@@ -53,7 +61,7 @@ const ReportDetail = () => {
                 : '',
             adminNotes: ''
         });
-    }, [reportData, navigate]);
+    }, [reportData, navigate, allReports]);
 
     useEffect(() => {
         if (!reportData || !mapContainerRef.current) return;
