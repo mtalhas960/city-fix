@@ -29,7 +29,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <aside className="w-64 bg-white shadow-md hidden md:block">
+        <aside className="w-58 bg-white shadow-md hidden md:block">
             <div className="h-full flex flex-col">
                 {/* Logo */}
                 <div className="px-6 py-4 border-b">

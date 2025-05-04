@@ -149,13 +149,7 @@ const ReportDetail = () => {
         <>
             <div className="bg-white rounded-2xl shadow-md max-w-6xl w-full mx-auto">
                 <div className="flex items-center justify-between p-6 border-b">
-                    <h4 className="text-xl font-medium text-darkGray">Report Details – {reportData.title}</h4>
-                    <button
-                        onClick={() => navigate('/admin-panel/reports')}
-                        className="text-darkGray/70 hover:text-primary"
-                    >
-                        Back to Reports
-                    </button>
+                    <h4>Report Details – {reportData.title}</h4>
                 </div>
 
                 <div className="p-6">
@@ -358,7 +352,7 @@ const ReportDetail = () => {
                 </div>
 
                 {/* Footer with buttons */}
-                <div className="px-6 py-4 bg-lightGray/50 border-t flex flex-wrap gap-3 justify-end">
+                <div className="px-6 py-4 bg-lightGray/50 border-t flex flex-col-reverse sm:flex-row gap-3 sm:justify-end">
                     <button
                         onClick={handleDeleteReport}
                         className="px-4 py-2 bg-danger text-white text-sm font-medium rounded-lg hover:bg-danger/90 transition-colors"

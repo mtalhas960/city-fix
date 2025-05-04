@@ -28,56 +28,92 @@ const ReportsLineChart = ({ timeRange, reportsData }) => {
   });
 
   useEffect(() => {
-    // Process data based on timeRange
     const processData = () => {
       let labels = [];
       let newReportsData = [];
       let resolvedReportsData = [];
-      
       if (timeRange === 'weekly') {
-        // Create labels for the last 7 days
         labels = Array(7).fill().map((_, i) => {
           const date = new Date();
           date.setDate(date.getDate() - (6 - i));
           return date.toLocaleDateString('en-US', { weekday: 'short' });
         });
-        
-        // Process report data for each day
+
         Array(7).fill().forEach((_, i) => {
           const date = new Date();
           date.setDate(date.getDate() - (6 - i));
           const startOfDay = new Date(date.setHours(0, 0, 0, 0));
           const endOfDay = new Date(date.setHours(23, 59, 59, 999));
-          
+
           const newCount = reportsData.filter(report => {
             const reportDate = new Date(report.submittedAt);
             return reportDate >= startOfDay && reportDate <= endOfDay;
           }).length;
-          
+
           const resolvedCount = reportsData.filter(report => {
             const reportDate = new Date(report.submittedAt);
             return reportDate >= startOfDay && reportDate <= endOfDay && report.status === 'resolved';
           }).length;
-          
+
           newReportsData.push(newCount);
           resolvedReportsData.push(resolvedCount);
         });
+
       } else if (timeRange === 'monthly') {
-        // Create labels for the last 4 weeks
-        labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
-        
-        // Mock data for monthly view (in a real app, you'd process actual data)
-        newReportsData = [48, 65, 42, 56];
-        resolvedReportsData = [32, 48, 38, 44];
-      } else {
-        // Create labels for months in a year
-        labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        
-        // Mock data for yearly view (in a real app, you'd process actual data)
-        newReportsData = [150, 180, 210, 250, 280, 240, 260, 270, 290, 310, 330, 350];
-        resolvedReportsData = [120, 140, 160, 200, 220, 200, 210, 240, 250, 260, 280, 300];
+        labels = Array(30).fill().map((_, i) => {
+          const date = new Date();
+          date.setDate(date.getDate() - (29 - i));
+          return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' }); // e.g., "2 May"
+        });
+
+        Array(30).fill().forEach((_, i) => {
+          const date = new Date();
+          date.setDate(date.getDate() - (29 - i));
+          const startOfDay = new Date(date.setHours(0, 0, 0, 0));
+          const endOfDay = new Date(date.setHours(23, 59, 59, 999));
+
+          const newCount = reportsData.filter(report => {
+            const reportDate = new Date(report.submittedAt);
+            return reportDate >= startOfDay && reportDate <= endOfDay;
+          }).length;
+
+          const resolvedCount = reportsData.filter(report => {
+            const reportDate = new Date(report.submittedAt);
+            return reportDate >= startOfDay && reportDate <= endOfDay && report.status === 'resolved';
+          }).length;
+
+          newReportsData.push(newCount);
+          resolvedReportsData.push(resolvedCount);
+        });
       }
-      
+      else {
+        labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        newReportsData = [];
+        resolvedReportsData = [];
+
+        const now = new Date();
+        const year = now.getFullYear();
+
+        labels.forEach((_, monthIndex) => {
+          const startOfMonth = new Date(year, monthIndex, 1);
+          const endOfMonth = new Date(year, monthIndex + 1, 0); // last day of month
+          endOfMonth.setHours(23, 59, 59, 999);
+
+          const newCount = reportsData.filter(report => {
+            const reportDate = new Date(report.submittedAt);
+            return reportDate >= startOfMonth && reportDate <= endOfMonth;
+          }).length;
+
+          const resolvedCount = reportsData.filter(report => {
+            const reportDate = new Date(report.submittedAt);
+            return reportDate >= startOfMonth && reportDate <= endOfMonth && report.status === 'resolved';
+          }).length;
+
+          newReportsData.push(newCount);
+          resolvedReportsData.push(resolvedCount);
+        });
+      }
+
       return {
         labels,
         datasets: [
@@ -98,7 +134,7 @@ const ReportsLineChart = ({ timeRange, reportsData }) => {
         ],
       };
     };
-    
+
     setChartData(processData());
   }, [timeRange, reportsData]);
 

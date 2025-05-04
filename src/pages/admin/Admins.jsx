@@ -8,21 +8,21 @@ const Admins = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   // Filter admins based on search term
-  const filteredAdmins = admins.filter(admin => 
+  const filteredAdmins = admins.filter(admin =>
     admin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     admin.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     admin.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
     admin.role.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
+
   // Calculate pagination
   const indexOfLastAdmin = currentPage * rowsPerPage;
   const indexOfFirstAdmin = indexOfLastAdmin - rowsPerPage;
   const currentAdmins = filteredAdmins.slice(indexOfFirstAdmin, indexOfLastAdmin);
   const totalPages = Math.ceil(filteredAdmins.length / rowsPerPage);
-  
+
   // Navigate to admin detail page
   const handleViewAdmin = (adminId) => {
     navigate(`/admin-panel/admins/${adminId}`);
@@ -35,7 +35,7 @@ const Admins = () => {
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  
+
   // Helper function to format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -45,7 +45,7 @@ const Admins = () => {
       day: 'numeric'
     });
   };
-  
+
   // Helper function to get status class
   const getStatusClass = (status) => {
     switch (status) {
@@ -57,7 +57,7 @@ const Admins = () => {
         return 'bg-warning/10 text-warning';
     }
   };
-  
+
   // Helper function to get role class
   const getRoleClass = (role) => {
     switch (role) {
@@ -79,22 +79,21 @@ const Admins = () => {
   // Generate pagination items
   const renderPaginationItems = () => {
     const items = [];
-    
+
     // Previous button
     items.push(
       <button
         key="prev"
         onClick={() => currentPage > 1 && paginate(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${
-          currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-darkGray/70 hover:bg-lightGray cursor-pointer'
-        }`}
+        className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-darkGray/70 hover:bg-lightGray cursor-pointer'
+          }`}
       >
         <span className="sr-only">Previous</span>
         <RiArrowLeftSLine className="h-5 w-5" />
       </button>
     );
-    
+
     // Page numbers
     if (totalPages <= 5) {
       for (let i = 1; i <= totalPages; i++) {
@@ -128,28 +127,26 @@ const Admins = () => {
         key="next"
         onClick={() => currentPage < totalPages && paginate(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${
-          currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-darkGray/70 hover:bg-lightGray cursor-pointer'
-        }`}
+        className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-darkGray/70 hover:bg-lightGray cursor-pointer'
+          }`}
       >
         <span className="sr-only">Next</span>
         <RiArrowRightSLine className="h-5 w-5" />
       </button>
     );
-    
+
     return items;
   };
-  
+
   const renderPageButton = (pageNumber) => (
     <button
       key={pageNumber}
       onClick={() => paginate(pageNumber)}
       aria-current={currentPage === pageNumber ? 'page' : undefined}
-      className={`${
-        currentPage === pageNumber
+      className={`${currentPage === pageNumber
           ? 'z-10 bg-primary border-primary text-white'
           : 'bg-white border-gray-300 text-darkGray/70 hover:bg-lightGray'
-      } relative inline-flex items-center px-4 py-2 border text-sm font-medium`}
+        } relative inline-flex items-center px-4 py-2 border text-sm font-medium`}
     >
       {pageNumber}
     </button>
@@ -161,7 +158,7 @@ const Admins = () => {
         <h4>Manage Administrators</h4>
         <p className="text-darkGray/70">View and manage user accounts with administrative access to the system.</p>
       </div>
-      
+
       {/* Search Bar and Add Button */}
       <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="relative w-full sm:w-64 md:w-80">
@@ -178,16 +175,16 @@ const Admins = () => {
             </svg>
           </span>
         </div>
-        
-        <button 
+
+        <button
           onClick={handleAddAdmin}
-          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center"
+          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center w-full sm:w-max text-nowrap"
         >
           <RiAddLine className="mr-2 h-5 w-5" />
           Add New Admin
         </button>
       </div>
-      
+
       {/* Admins Table */}
       <div className="bg-white rounded-2xl shadow overflow-hidden">
         <div className="overflow-x-auto">
@@ -254,8 +251,8 @@ const Admins = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
                       <div className="flex justify-center">
-                        <button 
-                          className="text-primary hover:text-primary/80" 
+                        <button
+                          className="text-primary hover:text-primary/80"
                           title="View Details"
                           onClick={() => handleViewAdmin(admin.id)}
                         >
@@ -275,24 +272,26 @@ const Admins = () => {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination */}
-        <div className="px-6 py-4 flex flex-col sm:flex-row gap-4 items-center justify-between border-t border-gray-200">
-          <div className="flex items-center">
-            <span className="text-sm text-darkGray/70 mr-2">Show rows:</span>
-            <select 
-              className="text-sm border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={rowsPerPage}
-              onChange={(e) => {
-                setRowsPerPage(Number(e.target.value));
-                setCurrentPage(1);
-              }}
-            >
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-            </select>
-            <span className="text-sm text-darkGray/70 ml-4">
+        <div className="px-6 py-4 flex flex-col lg:flex-row gap-4 lg:items-center justify-between border-t border-gray-200">
+          <div className="flex gap-3 flex-col sm:flex-row items-start sm:items-center">
+            <div>
+              <span className="text-sm text-darkGray/70 mr-2">Show rows:</span>
+              <select
+                className="text-sm border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                value={rowsPerPage}
+                onChange={(e) => {
+                  setRowsPerPage(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+              </select>
+            </div>
+            <span className="text-sm text-darkGray/70">
               Showing {indexOfFirstAdmin + 1}-{Math.min(indexOfLastAdmin, filteredAdmins.length)} of {filteredAdmins.length} administrators
             </span>
           </div>

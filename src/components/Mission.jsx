@@ -58,7 +58,7 @@ const Mission = () => {
             </div>
             <div className="lg:col-span-5 lg:pl-6 lg:border-l border-gray-200">
               <h3 className="text-3xl font-bold text-darkGray mb-6">Our Approach</h3>
-              <div className="space-y-2 mb-8">
+              <div className="space-y-2 mb-6">
                 <div className="flex items-start">
                   <RiCheckboxCircleFill size={24} className="text-[#9333ea] mt-1 mr-3 flex-shrink-0" />
                   <p className="text-darkGray/80">
@@ -84,7 +84,7 @@ const Mission = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-[#9333ea]/5 p-4 pt-0 rounded-lg border border-[#9333ea]/10">
+              <div className="bg-[#9333ea]/5 p-4 rounded-lg border border-[#9333ea]/10">
                 <p className="text-darkGray/80 italic">
                   "We believe in the power of collective action and technology to transform our urban spaces into more livable, responsive communities."
                 </p>

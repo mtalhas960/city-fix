@@ -115,7 +115,7 @@ const ContactForm = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-primary disabled:opacity-70 flex"
+                    className="btn-primary disabled:opacity-70 flex justify-center"
                   >
                     {isSubmitting ? (
                       <>

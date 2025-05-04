@@ -20,7 +20,7 @@ const Settings = () => {
       {/* Tabs Navigation */}
       <div className="bg-white rounded-2xl shadow mb-6">
         <div>
-          <nav className="flex overflow-x-auto scrollbar-hide">
+          <nav className="flex overflow-x-auto scrollbar-hide text-nowrap">
             <button
               onClick={() => handleTabChange('categories')}
               className={`px-6 py-4 font-medium ${

@@ -92,8 +92,8 @@ const AdminAdd = () => {
       
       <div className="bg-white rounded-2xl shadow-md max-w-4xl w-full mx-auto">
         {/* Header Section */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <h4 className="text-xl font-medium text-darkGray">Add New Administrator</h4>
+        <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-2 justify-between p-6 border-b">
+          <h4>Add New Administrator</h4>
           <button 
             onClick={() => navigate('/admin-panel/admins')}
             className="text-darkGray/70 hover:text-primary flex items-center"
@@ -332,18 +332,18 @@ const AdminAdd = () => {
           </div>
           
           {/* Form Submission */}
-          <div className="mt-8 pt-6 border-t flex justify-end">
+          <div className="mt-8 pt-6 border-t flex flex-col sm:flex-row gap-2 justify-end">
             <button
               type="button"
               onClick={() => navigate('/admin-panel/admins')}
-              className="px-4 py-2 border border-gray-300 text-darkGray rounded-lg hover:bg-lightGray mr-3"
+              className="px-4 py-2 border border-gray-300 text-darkGray rounded-lg hover:bg-lightGray"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className={`px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center ${
+              className={`px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center ${
                 isLoading ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >

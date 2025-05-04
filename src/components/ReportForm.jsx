@@ -462,7 +462,7 @@ const ReportForm = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="flex gap-4 items-center mt-2">
+                            <div className="flex flex-col sm:flex-row gap-4 items-center mt-2">
                                 <button
                                     type="button"
                                     onClick={useMyLocation}

@@ -232,7 +232,7 @@ const ReportRulesSettings = () => {
           <div className="pt-4 border-t border-gray-200 flex justify-end">
             <button 
               type="submit"
-              className="px-6 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors flex items-center"
+              className="px-6 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors flex items-center w-full justify-center sm:w-max"
             >
               <RiCheckLine className="h-5 w-5 mr-2" />
               Save Settings

@@ -130,7 +130,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         {/* Line chart (takes 2/3 of space) */}
         <div className="bg-white rounded-2xl shadow p-6 lg:col-span-2">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col gap-2 sm:justify-between sm:items-center sm:flex-row mb-6">
             <h3 className="font-poppins font-semibold text-lg">Reports Overview</h3>
             <div className="flex space-x-2">
               <button 
